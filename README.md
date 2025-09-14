@@ -144,7 +144,7 @@ Login awal:
 ### Setup Node Exporter di Server Proxmox
 
 #### Install Node Exporter
-##### Login ke masing-masing server Proxmox
+`Login ke masing-masing server Proxmox`
 Pindah ke Folder `/tmp`
 ```sh
 cd /tmp
@@ -240,5 +240,15 @@ Buka browser:
 ```sh
 http://IP_MINI_PC:9090/targets
 ```
+
+
+
+
+
+
+
+
+
+
 
 
