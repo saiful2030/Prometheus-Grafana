@@ -125,24 +125,21 @@ Cek di browser
 http://localhost:3000
 ```
 Login awal:
-Username: **admin**
-Password: **admin**
+- Username: **admin**
+- Password: **admin**
 
 #### Hubungkan Grafana ke Prometheus
-Di Grafana -> **Connections** -> **Data Sources** -> **Add data source**
-Pilih **Prometheus**
-Isi URL:
-```sh
-http://localhost:9090
-```
-Klik **Save & Test**
+- Di Grafana -> **Connections** -> **Data Sources** -> **Add data source**
+- Pilih **Prometheus**
+- Isi URL: `http://localhost:9090`
+- Klik **Save & Test**
 
 #### Import Dashboard
-Buka **Dashboards** -> **New** -> **Import**
-Masukkan ID: `1860`
-Klik **Load**
-Pilih data source `Prometheus`
-Klik **Import**
+- Buka **Dashboards** -> **New** -> **Import**
+- Masukkan ID: `1860`
+- Klik **Load**
+- Pilih data source `Prometheus`
+- Klik **Import**
 
 ### Setup Node Exporter di Server Proxmox
 
