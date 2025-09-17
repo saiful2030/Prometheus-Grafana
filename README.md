@@ -163,16 +163,20 @@ cd node_exporter-1.8.2.linux-amd64
 ```
 Salin Binary ke `/usr/local/bin/`
 ```sh
-sudo cp node_exporter /usr/local/bin/
+cp node_exporter /usr/local/bin/
 ```
 #### Buat User & Service
 Buat user khusus agar lebih aman 
 ```sh
-sudo useradd --no-create-home --shell /bin/false node_exporter
+useradd --no-create-home --shell /bin/false node_exporter
+```
+mengubah kepemilikan file binary `node_exporter`
+```sh
+chown node_exporter:node_exporter /usr/local/bin/node_exporter
 ```
 Buat file systemd service
 ```sh
-sudo nano /etc/systemd/system/node_exporter.service
+nano /etc/systemd/system/node_exporter.service
 ```
 Isi
 ```sh
@@ -190,24 +194,20 @@ ExecStart=/usr/local/bin/node_exporter
 [Install]
 WantedBy=multi-user.target
 ```
-Pastikan firewall Proxmox mengizinkan port 9100
+Simpan lalu reload service
 ```sh
-sudo ufw allow 9100/tcp
-```
-Aktifkan & jalankan
-```sh
-sudo systemctl daemon-reload
+systemctl daemon-reload
 ```
 ```sh
-sudo systemctl enable node_exporter
+systemctl enable --now node_exporter
 ```
+Cek status
 ```sh
-sudo systemctl start node_exporter
+systemctl status node_exporter
 ```
-Tes Akses
-Coba dari mini PC:
+Coba akses
 ```sh
-curl http://IP_SERVER_PROXMOX:9100/metrics
+curl http://localhost:9100/metrics | head -n 20
 ```
 Harus keluar banyak text seperti:
 ```sh
